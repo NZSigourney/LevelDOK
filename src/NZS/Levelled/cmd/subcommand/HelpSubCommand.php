@@ -2,6 +2,7 @@
 
 namespace NZS\Levelled\cmd\subcommand;
 
+use NZS\Levelled\Loader;
 use NZS\Levelled\Provider;
 use pocketmine\Player;
 use pocketmine\Server;
@@ -23,12 +24,23 @@ class HelpSubCommand
         $this->loadSubCommand($player);
     }
 
+    private function getLoader(): ?Loader
+    {
+        $loader = Server::getInstance()->getPluginManager()->getPlugin("LevelDOK");
+        if ($loader instanceof Loader){
+            return $loader;
+        }
+        return null;
+    }
+
     private function loadSubCommand(Player $player)
     {
         if ($player->hasPermission("Level.Command.Help"))
         {
             $player->sendMessage("§l§a-====== " . Server::getInstance()->getMotd() . "§l§a ======-");
             $player->sendMessage("§l§aSubCommand: help, info, top");
+        }else{
+            $player->sendMessage($this->getLoader()->getProvider()->getMessage("Level.Permission.exists"));
         }
     }
 

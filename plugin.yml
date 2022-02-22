@@ -1,5 +1,5 @@
-name: LevelDOK
-version: 1.0
+name: LevelDOK #BlockCore Remake
+version: 1.2
 api: 3.27.0
 main: NZS\Levelled\Loader
 author: NZS

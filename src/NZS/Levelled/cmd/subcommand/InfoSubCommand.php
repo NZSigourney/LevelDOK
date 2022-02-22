@@ -60,7 +60,7 @@ class InfoSubCommand
             $f->addLabel("§l§aYour EXP: ". $exp);
             $f->sendToPlayer($player);
         }else{
-            $player->sendMessage($this->getLoader()->getProvider()->getMessage("Info.Permission.exists"));
+            $player->sendMessage($this->getLoader()->getProvider()->getMessage("Level.Permission.exists"));
         }
     }
 }

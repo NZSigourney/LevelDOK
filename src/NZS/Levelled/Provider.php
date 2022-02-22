@@ -27,8 +27,9 @@ class Provider
     public function open(){
         $this->config = new Config($this->getLoader()->getDataFolder() . "recipes.yml", Config::YAML);
         $this->getLoader()->saveResource("Message.yml");
+        $this->getLoader()->saveResource("Version.yml");
         $this->message = new Config($this->getLoader()->getDataFolder() . "Message.yml", Config::YAML);
-        $this->version = new Config($this->getLoader()->getDataFolder() . "version.yml", config::YAML);
+        $this->version = new Config($this->getLoader()->getDataFolder() . "Version.yml", config::YAML);
     }
 
     public function getLoader(): ?Loader

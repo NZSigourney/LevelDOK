@@ -14,6 +14,12 @@ class Loader extends PluginBase{
     {
         $this->provider = new Provider();
         $this->provider->open();
+
+        if ($this->getProvider()->getVersion("Version") == 1.0) {
+            $this->getServer()->getLogger()->notice("Version 1.0 - Beta");
+        }else{
+            $this->getServer()->disablePlugins();
+        }
     }
 
     public function getProvider(): Provider
